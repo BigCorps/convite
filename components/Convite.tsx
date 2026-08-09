@@ -108,7 +108,11 @@ export default function Convite({ audioRef }: Props) {
   Sua presença é muito importante para nós. Pedimos a gentileza de
   confirmar quantas pessoas virão com você.
 </p>
-<p className="observacao">A noiva será pontual, favor não se atrasar!</p>
+<p className="observacao">
+  A noiva será pontual.
+  <br />
+  Favor não se atrasar!
+</p>
         <Botao href={links.rsvp}>Confirmar presença</Botao>
       </section>
 
