@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { convite, whatsappUrl } from "@/data/convite";
-import { ArranjoCanto, Broto, Divisor } from "./Ornamentos";
+import { convite } from "@/data/convite";import { ArranjoCanto, Broto, Divisor } from "./Ornamentos";
 import { Calendario, Contagem } from "./Contagem";
 import Player from "./Player";
 
@@ -133,14 +132,14 @@ export default function Convite({ audioRef }: Props) {
 
       <Divisor />
 
-      <section className="secao">
-        <Broto className="broto-titulo" />
-        <h2 className="titulo-script">Recados</h2>
-        <p className="texto">
-          Queremos guardar suas palavras. Mande um recado para nós no WhatsApp.
-        </p>
-        <Botao href={whatsappUrl()}>Deixar um recado</Botao>
-      </section>
+<section className="secao">
+  <Broto className="broto-titulo" />
+  <h2 className="titulo-script">Recados</h2>
+  <p className="texto">
+    Queremos guardar suas palavras. Deixe um recado no nosso mural.
+  </p>
+  <Botao href={links.recados}>Deixar um recado</Botao>
+</section>
 
       <Divisor />
 
