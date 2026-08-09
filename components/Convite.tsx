@@ -104,11 +104,11 @@ export default function Convite({ audioRef }: Props) {
       <section className="secao">
         <Broto className="broto-titulo" />
         <h2 className="titulo-script">Confirmação de presença</h2>
-        <p className="texto">
-          Sua presença é muito importante para nós. Pedimos a gentileza de
-          confirmar quantas pessoas virão com você.
-          A noiva será pontual, favor não se atrase!
-        </p>
+<p className="texto">
+  Sua presença é muito importante para nós. Pedimos a gentileza de
+  confirmar quantas pessoas virão com você.
+</p>
+<p className="observacao">A noiva será pontual, favor não se atrasar!</p>
         <Botao href={links.rsvp}>Confirmar presença</Botao>
       </section>
 
