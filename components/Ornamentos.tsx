@@ -192,6 +192,15 @@ export function ArranjoCanto({ className = "" }: { className?: string }) {
 // do centro geometrico. Valores medidos, nao estimados.
 const MONOGRAMA_X = -1.91;
 const MONOGRAMA_Y = 3.79;
+const MONOGRAMA_TAMANHO = 36;
+
+// Deliberadamente inline, e nao via classe CSS: atributo de apresentacao perde
+// para regra de classe, e tamanho e deslocamento precisam andar juntos. Assim o
+// lacre nao depende do estado do globals.css.
+const ESTILO_MONOGRAMA: React.CSSProperties = {
+  fontFamily: "var(--fonte-script), 'Snell Roundhand', cursive",
+  fontSize: MONOGRAMA_TAMANHO,
+};
 
 /** Lacre de cera com o monograma. */
 export function Lacre({ iniciais }: { iniciais: string }) {
@@ -239,7 +248,7 @@ export function Lacre({ iniciais }: { iniciais: string }) {
         x={50 + MONOGRAMA_X} y={50 + MONOGRAMA_Y}
         textAnchor="middle"
         dominantBaseline="central"
-        className="lacre-monograma"
+        style={ESTILO_MONOGRAMA}
         fill="var(--cera-sombra)"
       >
         {iniciais}
@@ -248,7 +257,7 @@ export function Lacre({ iniciais }: { iniciais: string }) {
         x={50 + MONOGRAMA_X} y={50 + MONOGRAMA_Y - 0.8}
         textAnchor="middle"
         dominantBaseline="central"
-        className="lacre-monograma"
+        style={ESTILO_MONOGRAMA}
         fill="var(--cera-luz)"
         opacity="0.9"
       >
