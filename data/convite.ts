@@ -12,7 +12,8 @@ export const convite = {
   },
 
   versiculo: {
-    texto: "As muitas águas não podem apagar o amor, nem os rios afogá-lo.",
+    texto: "As muitas águas não podem apagar o amor,",
+    texto2: "nem os rios afogá-lo.",
     referencia: "Cantares 8:7",
   },
 

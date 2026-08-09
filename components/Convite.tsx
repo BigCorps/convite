@@ -45,10 +45,14 @@ export default function Convite({ audioRef }: Props) {
       </section>
 
       <section className="secao">
-        <blockquote className="versiculo">
-          <p>&ldquo;{versiculo.texto}&rdquo;</p>
-          <cite>{versiculo.referencia}</cite>
-        </blockquote>
+<blockquote className="versiculo">
+  <p>
+    &ldquo;{versiculo.texto}
+    <br />
+    {versiculo.texto2}&rdquo;
+  </p>
+  {versiculo.referencia}
+</blockquote>
       </section>
 
       <section className="secao">
@@ -72,9 +76,7 @@ export default function Convite({ audioRef }: Props) {
       </section>
 
 <p className="aviso-pontualidade">
-  A noiva será pontual.
-  <br />
-  Favor não se atrasar!
+  A noiva será pontual. Favor não se atrasar!
 </p>
 
       <section className="secao">

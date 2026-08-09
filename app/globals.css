@@ -110,11 +110,12 @@ a {
   position: relative;
   z-index: 1;
   margin: 1.6rem auto 0;
-  max-width: 34ch;
-  font-size: 0.94rem;
+  max-width: none;
+  font-size: clamp(0.72rem, 3.4vw, 0.86rem);
   font-weight: 600;
   line-height: 1.7;
   text-align: center;
+  white-space: nowrap;
   color: var(--rose);
 }
 
@@ -211,6 +212,8 @@ a {
 
 .versiculo p {
   margin: 0 0 0.8rem;
+  max-width: 42ch;
+  margin-inline: auto;
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
