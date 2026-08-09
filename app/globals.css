@@ -43,9 +43,11 @@
 
   /* Medidas */
   --largura: 440px;
-  --fonte-script: Georgia, serif;
-  --fonte-corpo: Georgia, serif;
 }
+
+/* As variáveis --fonte-corpo e --fonte-script são definidas pelo next/font
+   na tag <html>. Não declare fallback aqui: :root tem a mesma especificidade
+   e sobrescreve a fonte real dependendo da ordem de injeção do CSS. */
 
 * {
   box-sizing: border-box;
@@ -60,7 +62,8 @@ body {
 body {
   background: var(--porcelana);
   color: var(--tinta);
-  font-family: var(--fonte-corpo), Georgia, serif;
+  font-size: 16px;
+  font-family: var(--fonte-corpo), "Century Gothic", "Segoe UI", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -82,7 +85,7 @@ a {
   margin: 0 0 0.6rem;
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--tinta-suave);
 }
@@ -94,18 +97,18 @@ a {
 
 .texto {
   margin: 0 0 1.4rem;
-  font-size: 1.02rem;
-  line-height: 1.75;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
   color: var(--tinta-suave);
-  max-width: 30ch;
+  max-width: 32ch;
   margin-inline: auto;
 }
 
 .titulo-script {
   margin: 0 0 1.2rem;
-  font-family: var(--fonte-script), cursive;
+  font-family: var(--fonte-script), "Snell Roundhand", cursive;
   font-weight: 400;
   font-size: 2.7rem;
   line-height: 1.15;
@@ -173,12 +176,11 @@ a {
 
 .moldura {
   position: relative;
-  width: 78%;
+  width: 86%;
   margin: 0 auto;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: 999px 999px 8px 8px;
-  box-shadow: 0 14px 34px rgba(139, 86, 77, 0.16);
+  box-shadow: 0 14px 34px rgba(139, 86, 77, 0.14);
 }
 
 .moldura img {
@@ -198,11 +200,11 @@ a {
 }
 
 .versiculo p {
-  margin: 0 0 0.7rem;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
   color: var(--tinta-suave);
 }
 
@@ -332,18 +334,17 @@ a {
 
 .chamada {
   margin: 0 0 1.6rem;
-  font-size: 0.98rem;
-  line-height: 1.7;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.8;
   color: var(--tinta-suave);
-  max-width: 32ch;
+  max-width: 33ch;
   margin-inline: auto;
 }
 
 .nomes {
   margin: 0 0 1rem;
-  font-family: var(--fonte-script), cursive;
+  font-family: var(--fonte-script), "Snell Roundhand", cursive;
   font-weight: 400;
   font-size: clamp(3rem, 13vw, 4.1rem);
   line-height: 1.05;
@@ -377,7 +378,7 @@ a {
   padding: 0.7rem 0;
   border-top: 1px solid rgba(253, 243, 239, 0.45);
   border-bottom: 1px solid rgba(253, 243, 239, 0.45);
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -409,8 +410,8 @@ a {
 
 .contagem-numero {
   display: block;
-  font-size: 2.15rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--rose);
   font-variant-numeric: tabular-nums;
@@ -498,19 +499,37 @@ a {
   z-index: 1;
   display: grid;
   place-items: center;
-  height: 3.2rem;
+  padding: 0.6rem 0;
 }
 
-.divisor span {
+.raminho {
+  width: 72%;
+  max-width: 260px;
+  height: auto;
+  opacity: 0.92;
+}
+
+.broto-titulo {
   display: block;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--rose-claro),
-    transparent
-  );
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 0.5rem;
+  opacity: 0.9;
+}
+
+/* Florais nas laterais do meio da página */
+.canto-me {
+  top: 34%;
+  left: -74px;
+  transform: rotate(-90deg);
+  opacity: 0.42;
+}
+
+.canto-md {
+  top: 62%;
+  right: -74px;
+  transform: scaleX(-1) rotate(-90deg);
+  opacity: 0.42;
 }
 
 .botao {
@@ -549,20 +568,17 @@ a {
 .local-endereco {
   margin: 0 0 1.6rem;
   font-size: 0.92rem;
-  line-height: 1.7;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  line-height: 1.8;
   color: var(--tinta-suave);
 }
 
 .destaque {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.7;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.8;
   color: var(--rose);
-  max-width: 28ch;
+  max-width: 30ch;
   margin-inline: auto;
 }
 
@@ -580,7 +596,7 @@ a {
 }
 
 .despedida em {
-  font-family: var(--fonte-script), cursive;
+  font-family: var(--fonte-script), "Snell Roundhand", cursive;
   font-size: 1.9rem;
   font-style: normal;
   letter-spacing: 0.02em;
@@ -701,7 +717,7 @@ a {
 }
 
 .lacre-monograma {
-  font-family: var(--fonte-script), cursive;
+  font-family: var(--fonte-script), "Snell Roundhand", cursive;
   font-size: 42px;
 }
 

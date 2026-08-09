@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { convite, whatsappUrl } from "@/data/convite";
-import { ArranjoCanto, Divisor } from "./Ornamentos";
+import { ArranjoCanto, Broto, Divisor } from "./Ornamentos";
 import { Calendario, Contagem } from "./Contagem";
 import Player from "./Player";
 
@@ -27,6 +27,8 @@ export default function Convite({ audioRef }: Props) {
       <ArranjoCanto className="canto canto-sd" />
       <ArranjoCanto className="canto canto-ie" />
       <ArranjoCanto className="canto canto-id" />
+      <ArranjoCanto className="canto canto-me" />
+      <ArranjoCanto className="canto canto-md" />
 
       <section className="secao secao-foto">
         <div className="moldura">
@@ -80,6 +82,7 @@ export default function Convite({ audioRef }: Props) {
       <Divisor />
 
       <section className="secao">
+        <Broto className="broto-titulo" />
         <h2 className="titulo-script">Localização</h2>
         <p className="texto">
           Para celebrarmos cada momento juntos, a cerimônia e a recepção
@@ -99,6 +102,7 @@ export default function Convite({ audioRef }: Props) {
       <Divisor />
 
       <section className="secao">
+        <Broto className="broto-titulo" />
         <h2 className="titulo-script">Confirmação de presença</h2>
         <p className="texto">
           Sua presença é muito importante para nós. Pedimos a gentileza de
@@ -110,6 +114,7 @@ export default function Convite({ audioRef }: Props) {
       <Divisor />
 
       <section className="secao">
+        <Broto className="broto-titulo" />
         <h2 className="titulo-script">Lista de presentes</h2>
         <p className="texto">
           O maior presente é dividir esse dia com você. Mas, se quiser nos
@@ -121,6 +126,7 @@ export default function Convite({ audioRef }: Props) {
       <Divisor />
 
       <section className="secao">
+        <Broto className="broto-titulo" />
         <h2 className="titulo-script">Recados</h2>
         <p className="texto">
           Queremos guardar suas palavras. Mande um recado para nós no WhatsApp.
@@ -131,6 +137,7 @@ export default function Convite({ audioRef }: Props) {
       <Divisor />
 
       <section className="secao">
+        <Broto className="broto-titulo" />
         <h2 className="titulo-script">Dress code</h2>
         <p className="texto">{trajes.texto}</p>
         <p className="destaque">{trajes.destaque}</p>

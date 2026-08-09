@@ -252,11 +252,103 @@ export function Lacre({ iniciais }: { iniciais: string }) {
   );
 }
 
-/** Filete vertical que separa as secoes. */
+/** Raminho horizontal usado entre as seções, com uma rosa ao centro. */
+export function RaminhoDivisor() {
+  const direita: Array<[number, number, number, number]> = [
+    [128, 20, 62, 0.62],
+    [148, 17, 74, 0.54],
+    [166, 15, 86, 0.46],
+    [136, 26, 116, 0.5],
+    [156, 24, 104, 0.42],
+  ];
+  const esquerda = direita.map(
+    ([x, y, r, e]) => [220 - x, y, -r, e] as [number, number, number, number]
+  );
+
+  return (
+    <svg
+      className="raminho"
+      viewBox="0 0 220 44"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <SombrasRosa />
+      <path
+        d="M120 21 C 140 19 164 18 186 21"
+        fill="none"
+        stroke="var(--caule)"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+      <path
+        d="M100 21 C 80 19 56 18 34 21"
+        fill="none"
+        stroke="var(--caule)"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+      {[...direita, ...esquerda].map(([x, y, r, e], i) => (
+        <ellipse
+          key={i}
+          rx="6.5"
+          ry="12"
+          fill={i % 3 === 0 ? "var(--folha)" : "var(--folha-clara)"}
+          opacity="0.85"
+          transform={`translate(${x} ${y}) rotate(${r}) scale(${e})`}
+        />
+      ))}
+      <circle cx="196" cy="21" r="2.6" fill="var(--broto)" />
+      <circle cx="24" cy="21" r="2.6" fill="var(--broto)" />
+      <Rosa id={0} x={110} y={21} s={0.62} rot={-8} />
+    </svg>
+  );
+}
+
+/** Acento pequeno: um botão de rosa com duas folhas. */
+export function Broto({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 60 60"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <SombrasRosa />
+      <path
+        d="M30 52 C 30 42 30 36 30 30"
+        fill="none"
+        stroke="var(--caule)"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      <ellipse
+        rx="5.5"
+        ry="10"
+        fill="var(--folha)"
+        opacity="0.85"
+        transform="translate(21 44) rotate(-34)"
+      />
+      <ellipse
+        rx="5.5"
+        ry="10"
+        fill="var(--folha-clara)"
+        opacity="0.85"
+        transform="translate(39 44) rotate(34)"
+      />
+      <Rosa id={1} x={30} y={24} s={0.8} rot={10} />
+    </svg>
+  );
+}
+
+/** Filete vertical que separa as seções. */
 export function Divisor() {
   return (
     <div className="divisor" aria-hidden="true">
-      <span />
+      <RaminhoDivisor />
     </div>
   );
 }

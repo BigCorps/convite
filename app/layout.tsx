@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Pinyon_Script } from "next/font/google";
+import { Pinyon_Script, Quicksand } from "next/font/google";
 import { convite } from "@/data/convite";
 import "./globals.css";
 
-const corpo = Cormorant_Garamond({
+// Geométrica no estilo Century Gothic, para casar com o site do Casar.com.
+const corpo = Quicksand({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--fonte-corpo",
   display: "swap",
 });
