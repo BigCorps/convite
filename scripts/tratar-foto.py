@@ -11,7 +11,7 @@ import numpy as np
 
 ORIGEM = "/mnt/user-data/uploads/foto.png"
 DESTINO = "/home/claude/convite/public/foto.jpg"
-PAPEL = np.array([255, 252, 250], np.float32)  # --marfim
+PAPEL = np.array([250, 238, 233], np.float32)  # --marfim (cartao rose)
 LARGURA_FINAL = 900
 
 im = Image.open(ORIGEM).convert("RGB")

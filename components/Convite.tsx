@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { convite } from "@/data/convite";import { ArranjoCanto, Broto, Divisor } from "./Ornamentos";
+import { convite } from "@/data/convite";
+import { ArranjoCanto, Broto, Divisor } from "./Ornamentos";
 import { Calendario, Contagem } from "./Contagem";
 import Player from "./Player";
 
@@ -44,14 +45,14 @@ export default function Convite({ audioRef }: Props) {
       </section>
 
       <section className="secao">
-<blockquote className="versiculo">
-  <p>
-    &ldquo;{versiculo.texto}
-    <br />
-    {versiculo.texto2}&rdquo;
-  </p>
-  {versiculo.referencia}
-</blockquote>
+        <blockquote className="versiculo">
+          <p>
+            &ldquo;{versiculo.texto}
+            <br />
+            {versiculo.texto2}&rdquo;
+          </p>
+          <cite>{versiculo.referencia}</cite>
+        </blockquote>
       </section>
 
       <section className="secao">
@@ -74,9 +75,7 @@ export default function Convite({ audioRef }: Props) {
         </p>
       </section>
 
-<p className="aviso-pontualidade">
-  A noiva será pontual. Favor não se atrasar!
-</p>
+      <p className="aviso-pontualidade">{convite.avisoPontualidade}</p>
 
       <section className="secao">
         <Contagem />
@@ -111,10 +110,10 @@ export default function Convite({ audioRef }: Props) {
       <section className="secao">
         <Broto className="broto-titulo" />
         <h2 className="titulo-script">Confirmação de presença</h2>
-<p className="texto">
-  Sua presença é muito importante para nós. Pedimos a gentileza de
-  confirmar quantas pessoas virão com você.
-</p>
+        <p className="texto">
+          Sua presença é muito importante para nós. Pedimos a gentileza de
+          confirmar quantas pessoas virão com você.
+        </p>
         <Botao href={links.rsvp}>Confirmar presença</Botao>
       </section>
 
@@ -132,14 +131,14 @@ export default function Convite({ audioRef }: Props) {
 
       <Divisor />
 
-<section className="secao">
-  <Broto className="broto-titulo" />
-  <h2 className="titulo-script">Recados</h2>
-  <p className="texto">
-    Queremos guardar suas palavras. Deixe um recado no nosso mural.
-  </p>
-  <Botao href={links.recados}>Deixar um recado</Botao>
-</section>
+      <section className="secao">
+        <Broto className="broto-titulo" />
+        <h2 className="titulo-script">Recados</h2>
+        <p className="texto">
+          Queremos guardar suas palavras. Deixe um recado no nosso mural.
+        </p>
+        <Botao href={links.recados}>Deixar um recado</Botao>
+      </section>
 
       <Divisor />
 

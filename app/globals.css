@@ -4,33 +4,38 @@
    ========================================================================== */
 
 :root {
-  /* Fundo e papel */
-  --porcelana: #fdf8f6;
-  --marfim: #fffcfa;
+  /* Fundo e papel — invertidos: exterior branco, cartão rosê.
+     Os nomes ficaram enganosos depois da inversão, mas renomear
+     obrigaria a mexer em dezenas de linhas. */
+  --porcelana: #ffffff; /* fora do cartão */
+  --marfim: #faeee9; /* o cartão do convite */
   --blush: #f6e6e1;
   --blush-fundo: #eed6ce;
 
   /* Acentos */
   --rose: #b4767c;
+  /* Sobre o cartão rosê o --rose cai para 3,17:1, insuficiente para texto
+     pequeno. Títulos em cursiva seguem com --rose: são grandes, 3:1 basta. */
+  --rose-texto: #936065;
   --rose-escuro: #8e5a62;
   --rose-claro: #d7a7a6;
   --argila: #c4948c;
 
   /* Texto */
   --tinta: #5e4348;
-  --tinta-suave: #8b6f72;
+  --tinta-suave: #81676a;
   --tinta-clara: #fdf3ef;
 
   /* Florais */
-  --petala-clara: #f5ddd7;
+  --petala-clara: #f2d5cd;
   --petala-media: #e3b5ae;
   --petala-escura: #b4767c;
-  --petala-clara-2: #fbebe6;
-  --petala-media-2: #f0cfc7;
+  --petala-clara-2: #f7e0d8;
+  --petala-media-2: #edc7be;
   --folha: #afae9b;
   --folha-clara: #c9c7b6;
   --caule: #9a9784;
-  --broto: #e9cfc7;
+  --broto: #e6c8bf;
 
   /* Lacre */
   --cera-luz: #f0c6b1;
@@ -106,19 +111,6 @@ a {
   margin-inline: auto;
 }
 
-.aviso-pontualidade {
-  position: relative;
-  z-index: 1;
-  margin: 1.6rem auto 0;
-  max-width: none;
-  font-size: clamp(0.72rem, 3.4vw, 0.86rem);
-  font-weight: 600;
-  line-height: 1.7;
-  text-align: center;
-  white-space: nowrap;
-  color: var(--rose);
-}
-
 .titulo-script {
   margin: 0 0 1.2rem;
   font-family: var(--fonte-script), "Snell Roundhand", cursive;
@@ -140,7 +132,10 @@ a {
   padding: 3.5rem 1.5rem 0;
   background: var(--marfim);
   overflow: hidden;
-  box-shadow: 0 0 60px rgba(139, 86, 77, 0.09);
+  /* Cartão e exterior contrastam só 1,14:1. Sem o filete, a borda some. */
+  box-shadow:
+    0 0 0 1px rgba(180, 118, 124, 0.07),
+    0 10px 50px rgba(139, 86, 77, 0.1);
 }
 
 .canto {
@@ -212,13 +207,13 @@ a {
 
 .versiculo p {
   margin: 0 0 0.8rem;
-  max-width: 42ch;
-  margin-inline: auto;
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
   line-height: 1.8;
   color: var(--tinta-suave);
+  max-width: 42ch;
+  margin-inline: auto;
 }
 
 .versiculo cite {
@@ -403,6 +398,19 @@ a {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   opacity: 0.9;
+}
+
+.aviso-pontualidade {
+  position: relative;
+  z-index: 1;
+  margin: 1.6rem auto 0;
+  /* clamp para não transbordar em telas de 320px */
+  font-size: clamp(0.72rem, 3.4vw, 0.86rem);
+  font-weight: 600;
+  line-height: 1.7;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--rose-texto);
 }
 
 /* --------------------------------------------------------------------------
@@ -590,7 +598,7 @@ a {
   font-size: 0.96rem;
   font-weight: 600;
   line-height: 1.8;
-  color: var(--rose);
+  color: var(--rose-texto);
   max-width: 30ch;
   margin-inline: auto;
 }
@@ -739,7 +747,8 @@ a {
 .envelope-etiqueta {
   margin-top: 1.6rem;
   padding: 0.5rem 1.1rem;
-  background: var(--marfim);
+  /* Branco explícito: --marfim virou rosê e ficaria rosê sobre rosê. */
+  background: #ffffff;
   color: var(--tinta);
   font-size: 0.66rem;
   font-weight: 600;
@@ -780,12 +789,7 @@ a {
 
 @media (min-width: 900px) {
   body {
-    background:
-      radial-gradient(
-        circle at 50% 0%,
-        var(--blush) 0%,
-        var(--porcelana) 60%
-      );
+    background: var(--porcelana);
   }
 }
 

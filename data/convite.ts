@@ -43,6 +43,8 @@ export const convite = {
       "https://www.google.com/maps/place/R.+Pascoal+Daniel,+96+-+Vila+Giordano,+S%C3%A3o+Paulo+-+SP,+08020-370",
   },
 
+  avisoPontualidade: "A noiva será pontual. Favor não se atrasar!",
+
   trajes: {
     texto: "Traje social.",
     destaque: "Roupas e cores claras são reservadas à noiva.",
@@ -54,6 +56,11 @@ export const convite = {
     presentes: "https://noivos.casar.com/miriam-e-ithiel#/presentes",
     recados: "https://noivos.casar.com/miriam-e-ithiel#/recados",
     siteCompleto: "https://noivos.casar.com/miriam-e-ithiel",
+  },
+
+  whatsapp: {
+    numero: "5511987391029",
+    mensagem: "Oi! Vi o convite de vocês e queria deixar um recado:",
   },
 
   // Arquivo em /public. Veja o README sobre o nome do arquivo.
@@ -68,3 +75,7 @@ export const convite = {
   },
 } as const;
 
+export function whatsappUrl() {
+  const { numero, mensagem } = convite.whatsapp;
+  return `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+}
