@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { convite } from "@/data/convite";
-import { ArranjoCanto, Lacre, PadraoGravado } from "./Ornamentos";
+import { ArranjoCanto, PadraoGravado } from "./Ornamentos";
 
 export default function Envelope({ onAbrir }: { onAbrir: () => void }) {
   const [abrindo, setAbrindo] = useState(false);
@@ -54,8 +54,17 @@ export default function Envelope({ onAbrir }: { onAbrir: () => void }) {
         <ArranjoCanto className="envelope-flor esquerda" />
         <ArranjoCanto className="envelope-flor direita" />
 
+        {/* PNG e nao SVG de proposito: o monograma em Pinyon Script dependia
+            da fonte carregar e do alinhamento vir do CSS. Como imagem, sai
+            identico em qualquer navegador. */}
         <div className="envelope-lacre">
-          <Lacre iniciais={convite.iniciais} />
+          <Image
+            src="/lacre.png"
+            alt={`Lacre com as iniciais ${convite.iniciais}`}
+            width={232}
+            height={232}
+            priority
+          />
         </div>
 
         <span className="envelope-etiqueta">Clique para abrir</span>

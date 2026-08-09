@@ -1,53 +1,40 @@
 """
-Recorta e trata a foto do casal para a paleta rose do convite.
-Rodar de novo se voces trocarem a foto: basta apontar ORIGEM e ajustar RECORTE.
+Prepara a foto do casal para o convite.
+
+A foto tem fundo claro que desvanece nas bordas. O cartao do convite usa
+--marfim (#FFFCFA). Se o fundo da foto nao for exatamente essa cor, aparece um
+retangulo fantasma. Este script desloca so os pixels de fundo ate a cor do
+cartao, preservando o casal.
 """
-from PIL import Image, ImageFilter
+from PIL import Image
 import numpy as np
 
-ORIGEM = "/mnt/user-data/uploads/1786234565187_WhatsApp_Image_2026-08-08_at_21_14_43.jpeg"
+ORIGEM = "/mnt/user-data/uploads/foto.png"
 DESTINO = "/home/claude/convite/public/foto.jpg"
-RECORTE = (235, 455, 928, 1296)   # esquerda, topo, direita, base
-LARGURA_FINAL = 880
+PAPEL = np.array([255, 252, 250], np.float32)  # --marfim
+LARGURA_FINAL = 900
 
-im = Image.open(ORIGEM).convert("RGB").crop(RECORTE)
+im = Image.open(ORIGEM).convert("RGB")
 alt = round(im.height * LARGURA_FINAL / im.width)
 im = im.resize((LARGURA_FINAL, alt), Image.LANCZOS)
+x = np.asarray(im).astype(np.float32)
 
-# Suaviza o ruido do flash sem perder o desenho dos rostos
-suave = im.filter(ImageFilter.GaussianBlur(1.1))
-im = Image.blend(im, suave, 0.35)
+# Cor de fundo medida nos quatro cantos
+cantos = np.concatenate([
+    x[:30, :30].reshape(-1, 3), x[:30, -30:].reshape(-1, 3),
+    x[-30:, :30].reshape(-1, 3), x[-30:, -30:].reshape(-1, 3),
+])
+fundo = np.median(cantos, axis=0)
+print("fundo medido:", fundo.round(1), "-> alvo:", PAPEL)
 
-x = np.asarray(im).astype(np.float32) / 255.0
-luma = (0.2126 * x[..., 0] + 0.7152 * x[..., 1] + 0.0722 * x[..., 2])[..., None]
+# Peso: 1 onde e fundo puro, 0 onde e o casal. Baseado na distancia de cor.
+dist = np.linalg.norm(x - fundo, axis=2)
+peso = np.clip(1.0 - dist / 26.0, 0.0, 1.0)[..., None]
 
-# 1. Dessatura: o verde e o azul do fundo perdem forca
-x = luma + (x - luma) * 0.58
-
-# 2. Balanco quente
-x *= np.array([1.055, 1.000, 0.930], np.float32)
-
-# 3. Sombras puxadas para o rose (efeito de filme, tira o preto duro)
-rose = np.array([0.949, 0.871, 0.855], np.float32)
-peso = 0.20 * np.power(1.0 - luma, 1.6)
-x = x * (1 - peso) + rose * peso
-
-# 4. Altas luzes puxadas para o creme
-creme = np.array([1.000, 0.980, 0.962], np.float32)
-peso = 0.12 * np.power(luma, 2.2)
-x = x * (1 - peso) + creme * peso
-
-# 5. Contraste suave em S
-x = np.clip(x, 0, 1)
-x = x + 0.10 * (x - 0.5) * (1 - np.abs(x - 0.5) * 2)
-
-# 6. Vinheta discreta
-h, w = x.shape[:2]
-yy, xx = np.mgrid[0:h, 0:w]
-r = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
-x *= (1 - 0.16 * np.clip(r - 0.55, 0, None) ** 1.5)[..., None]
-
-Image.fromarray((np.clip(x, 0, 1) * 255).astype(np.uint8)).save(
-    DESTINO, quality=88, optimize=True, progressive=True
+x = x + (PAPEL - fundo) * peso
+Image.fromarray(np.clip(x, 0, 255).astype(np.uint8)).save(
+    DESTINO, quality=94, subsampling=0, optimize=True, progressive=True
 )
-print("gravado:", DESTINO, Image.open(DESTINO).size)
+
+conf = np.asarray(Image.open(DESTINO)).astype(int)
+print("canto apos ajuste:", conf[:20, :20].reshape(-1, 3).mean(0).round(1))

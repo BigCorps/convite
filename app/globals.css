@@ -176,11 +176,9 @@ a {
 
 .moldura {
   position: relative;
-  width: 86%;
+  width: 92%;
   margin: 0 auto;
   aspect-ratio: 4 / 5;
-  overflow: hidden;
-  box-shadow: 0 14px 34px rgba(139, 86, 77, 0.14);
 }
 
 .moldura img {
@@ -711,9 +709,10 @@ a {
   transition: transform 0.9s cubic-bezier(0.5, -0.3, 0.3, 1.3), opacity 0.7s ease;
 }
 
-.envelope-lacre svg {
+.envelope-lacre img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .lacre-monograma {
