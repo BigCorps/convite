@@ -187,6 +187,12 @@ export function ArranjoCanto({ className = "" }: { className?: string }) {
   );
 }
 
+// O "M" do Pinyon Script tem entrada fina a esquerda e o "I" um floreio pesado
+// a direita, entao o centro de massa da tinta cai 1,91 a direita e 3,79 acima
+// do centro geometrico. Valores medidos, nao estimados.
+const MONOGRAMA_X = -1.91;
+const MONOGRAMA_Y = 3.79;
+
 /** Lacre de cera com o monograma. */
 export function Lacre({ iniciais }: { iniciais: string }) {
   return (
@@ -230,7 +236,7 @@ export function Lacre({ iniciais }: { iniciais: string }) {
         opacity="0.5"
       />
       <text
-        x="50" y="50"
+        x={50 + MONOGRAMA_X} y={50 + MONOGRAMA_Y}
         textAnchor="middle"
         dominantBaseline="central"
         className="lacre-monograma"
@@ -239,7 +245,7 @@ export function Lacre({ iniciais }: { iniciais: string }) {
         {iniciais}
       </text>
       <text
-        x="50" y="49.2"
+        x={50 + MONOGRAMA_X} y={50 + MONOGRAMA_Y - 0.8}
         textAnchor="middle"
         dominantBaseline="central"
         className="lacre-monograma"

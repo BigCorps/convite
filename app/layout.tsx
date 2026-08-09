@@ -20,10 +20,17 @@ const script = Pinyon_Script({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://convite.bigcorps.com.br"),
-  title: `${convite.noivos.exibicao} | ${convite.data.extenso}`,
+  applicationName: "Casamento Miriam e Ithiel",
+  title: "Casamento Miriam e Ithiel",
   description: `${convite.noivos.completo} convidam para a cerimônia de casamento.`,
+  appleWebApp: {
+    capable: true,
+    title: "Miriam e Ithiel",
+    statusBarStyle: "default",
+  },
   openGraph: {
-    title: `${convite.noivos.exibicao}`,
+    siteName: "Casamento Miriam e Ithiel",
+    title: "Casamento Miriam e Ithiel",
     description: `${convite.data.extenso} · ${convite.local.nome}`,
     images: [convite.foto.src],
     type: "website",

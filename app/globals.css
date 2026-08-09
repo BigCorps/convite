@@ -718,7 +718,8 @@ a {
 
 .lacre-monograma {
   font-family: var(--fonte-script), "Snell Roundhand", cursive;
-  font-size: 42px;
+  /* 42 fazia a tinta ter 80,9 de largura contra 62 do anel interno. */
+  font-size: 36px;
 }
 
 .envelope-etiqueta {
