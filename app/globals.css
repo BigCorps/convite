@@ -1,0 +1,774 @@
+/* ==========================================================================
+   Convite Miriam & Ithiel
+   Paleta rosê. Todos os valores ficam nas variáveis abaixo.
+   ========================================================================== */
+
+:root {
+  /* Fundo e papel */
+  --porcelana: #fdf8f6;
+  --marfim: #fffcfa;
+  --blush: #f6e6e1;
+  --blush-fundo: #eed6ce;
+
+  /* Acentos */
+  --rose: #b4767c;
+  --rose-escuro: #8e5a62;
+  --rose-claro: #d7a7a6;
+  --argila: #c4948c;
+
+  /* Texto */
+  --tinta: #5e4348;
+  --tinta-suave: #8b6f72;
+  --tinta-clara: #fdf3ef;
+
+  /* Florais */
+  --petala-clara: #f5ddd7;
+  --petala-media: #e3b5ae;
+  --petala-escura: #b4767c;
+  --petala-clara-2: #fbebe6;
+  --petala-media-2: #f0cfc7;
+  --folha: #afae9b;
+  --folha-clara: #c9c7b6;
+  --caule: #9a9784;
+  --broto: #e9cfc7;
+
+  /* Lacre */
+  --cera-luz: #f0c6b1;
+  --cera-meio: #c98d7c;
+  --cera-sombra: #8b564d;
+
+  /* Envelope gravado */
+  --gravado-linha: rgba(139, 86, 77, 0.13);
+  --gravado-folha: rgba(255, 255, 255, 0.2);
+
+  /* Medidas */
+  --largura: 440px;
+  --fonte-script: Georgia, serif;
+  --fonte-corpo: Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--porcelana);
+  color: var(--tinta);
+  font-family: var(--fonte-corpo), Georgia, serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.travado {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Tipografia base
+   -------------------------------------------------------------------------- */
+
+.rotulo {
+  margin: 0 0 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.rotulo.claro {
+  color: var(--tinta-clara);
+  opacity: 0.85;
+}
+
+.texto {
+  margin: 0 0 1.4rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  max-width: 30ch;
+  margin-inline: auto;
+}
+
+.titulo-script {
+  margin: 0 0 1.2rem;
+  font-family: var(--fonte-script), cursive;
+  font-weight: 400;
+  font-size: 2.7rem;
+  line-height: 1.15;
+  color: var(--rose);
+}
+
+/* --------------------------------------------------------------------------
+   Papel: o cartão que segura o convite inteiro
+   -------------------------------------------------------------------------- */
+
+.papel {
+  position: relative;
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 0;
+  background: var(--marfim);
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(139, 86, 77, 0.09);
+}
+
+.canto {
+  position: absolute;
+  width: 168px;
+  height: 168px;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.canto-se {
+  top: -14px;
+  left: -30px;
+}
+.canto-sd {
+  top: -14px;
+  right: -30px;
+  transform: scaleX(-1);
+}
+.canto-ie {
+  bottom: -14px;
+  left: -30px;
+  transform: scaleY(-1);
+}
+.canto-id {
+  bottom: -14px;
+  right: -30px;
+  transform: scale(-1, -1);
+}
+
+.secao {
+  position: relative;
+  z-index: 1;
+  padding: 2.6rem 0;
+  text-align: center;
+}
+
+.secao-foto {
+  padding-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Foto
+   -------------------------------------------------------------------------- */
+
+.moldura {
+  position: relative;
+  width: 78%;
+  margin: 0 auto;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 999px 999px 8px 8px;
+  box-shadow: 0 14px 34px rgba(139, 86, 77, 0.16);
+}
+
+.moldura img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Versículo
+   -------------------------------------------------------------------------- */
+
+.versiculo {
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.versiculo p {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.versiculo cite {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+/* --------------------------------------------------------------------------
+   Player
+   -------------------------------------------------------------------------- */
+
+.player {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.player-chamada {
+  margin: 0 0 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.player-barra input[type="range"] {
+  --progresso: 0%;
+  width: 100%;
+  height: 3px;
+  margin: 0;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    var(--rose) var(--progresso),
+    var(--blush-fundo) var(--progresso)
+  );
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.player-barra input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--rose);
+  border: 2px solid var(--marfim);
+}
+
+.player-barra input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--marfim);
+  border-radius: 50%;
+  background: var(--rose);
+}
+
+.player-tempos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.player-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 1rem;
+}
+
+.player-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--tinta-suave);
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.player-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.player-btn:hover {
+  color: var(--rose);
+}
+
+.player-btn.ativo {
+  color: var(--rose);
+}
+
+.player-btn-principal {
+  width: 52px;
+  height: 52px;
+  background: var(--rose);
+  color: var(--tinta-clara);
+  box-shadow: 0 6px 16px rgba(139, 86, 77, 0.28);
+}
+
+.player-btn-principal:hover {
+  color: var(--tinta-clara);
+  transform: scale(1.05);
+}
+
+.player-btn-principal svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Nomes e chamada
+   -------------------------------------------------------------------------- */
+
+.chamada {
+  margin: 0 0 1.6rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  max-width: 32ch;
+  margin-inline: auto;
+}
+
+.nomes {
+  margin: 0 0 1rem;
+  font-family: var(--fonte-script), cursive;
+  font-weight: 400;
+  font-size: clamp(3rem, 13vw, 4.1rem);
+  line-height: 1.05;
+  color: var(--rose);
+}
+
+.subtitulo {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* --------------------------------------------------------------------------
+   Bloco da data
+   -------------------------------------------------------------------------- */
+
+.bloco-data {
+  position: relative;
+  z-index: 1;
+  margin: 1rem -1.5rem;
+  padding: 2.6rem 1.5rem;
+  background: var(--argila);
+  text-align: center;
+  color: var(--tinta-clara);
+}
+
+.data-extenso {
+  margin: 0;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(253, 243, 239, 0.45);
+  border-bottom: 1px solid rgba(253, 243, 239, 0.45);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.data-hora {
+  margin: 0.8rem 0 0;
+  font-size: 0.86rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   Contagem regressiva
+   -------------------------------------------------------------------------- */
+
+.contagem-grade {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.contagem-campo {
+  position: relative;
+  min-width: 3.4rem;
+}
+
+.contagem-numero {
+  display: block;
+  font-size: 2.15rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--rose);
+  font-variant-numeric: tabular-nums;
+}
+
+.contagem-nome {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.contagem-doispontos {
+  position: absolute;
+  top: 0;
+  right: -0.7rem;
+  font-size: 1.7rem;
+  color: var(--rose-claro);
+}
+
+/* --------------------------------------------------------------------------
+   Calendário
+   -------------------------------------------------------------------------- */
+
+.calendario-mes {
+  margin: 0 0 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tinta);
+}
+
+.calendario-grade {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem;
+  max-width: 290px;
+  margin: 0 auto;
+}
+
+.calendario-cabecalho {
+  padding-bottom: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--rose);
+}
+
+.calendario-dia {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  font-size: 0.86rem;
+  color: var(--tinta-suave);
+}
+
+.calendario-numero {
+  position: relative;
+  z-index: 1;
+}
+
+.calendario-dia.marcado {
+  color: var(--rose);
+  font-weight: 600;
+}
+
+.calendario-coracao {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--rose);
+}
+
+/* --------------------------------------------------------------------------
+   Divisor e botões
+   -------------------------------------------------------------------------- */
+
+.divisor {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  height: 3.2rem;
+}
+
+.divisor span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--rose-claro),
+    transparent
+  );
+}
+
+.botao {
+  display: inline-block;
+  padding: 0.85rem 2.1rem;
+  border-radius: 999px;
+  background: var(--rose);
+  color: var(--tinta-clara);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(139, 86, 77, 0.24);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.botao:hover {
+  background: var(--rose-escuro);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Localização, dress code, fecho
+   -------------------------------------------------------------------------- */
+
+.local-nome {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta);
+}
+
+.local-endereco {
+  margin: 0 0 1.6rem;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.destaque {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rose);
+  max-width: 28ch;
+  margin-inline: auto;
+}
+
+.secao-fim {
+  padding-bottom: 4.5rem;
+}
+
+.despedida {
+  margin: 0 0 0.9rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinta);
+}
+
+.despedida em {
+  font-family: var(--fonte-script), cursive;
+  font-size: 1.9rem;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--rose);
+}
+
+.assinatura {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* --------------------------------------------------------------------------
+   Envelope (capa)
+   -------------------------------------------------------------------------- */
+
+.envelope {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: var(--blush);
+  cursor: pointer;
+  transition: opacity 0.7s ease 0.5s, visibility 0.7s ease 0.5s;
+}
+
+.envelope-foto {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.envelope-foto img {
+  filter: blur(2px) saturate(0.8);
+  transform: scale(1.06);
+}
+
+.envelope-veu {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 248, 246, 0.55),
+    rgba(196, 148, 140, 0.4)
+  );
+}
+
+.envelope-aba {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64%;
+  background: var(--blush-fundo);
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 50% 100%, 0 40%);
+  transform-origin: top center;
+  transition: transform 1s cubic-bezier(0.6, 0, 0.3, 1), opacity 0.8s ease 0.3s;
+}
+
+.envelope-vinco {
+  position: absolute;
+  inset: 5px;
+  background: var(--blush);
+  opacity: 0.5;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 50% 100%, 0 40%);
+}
+
+.gravado {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.envelope-centro {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  margin-top: 8vh;
+}
+
+.envelope-flor {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.envelope-flor.esquerda {
+  left: -128px;
+  top: -34px;
+  transform: rotate(-14deg);
+}
+
+.envelope-flor.direita {
+  right: -128px;
+  top: -34px;
+  transform: scaleX(-1) rotate(-14deg);
+}
+
+.envelope-lacre {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  filter: drop-shadow(0 8px 16px rgba(139, 86, 77, 0.4));
+  transition: transform 0.9s cubic-bezier(0.5, -0.3, 0.3, 1.3), opacity 0.7s ease;
+}
+
+.envelope-lacre svg {
+  width: 100%;
+  height: 100%;
+}
+
+.lacre-monograma {
+  font-family: var(--fonte-script), cursive;
+  font-size: 42px;
+}
+
+.envelope-etiqueta {
+  margin-top: 1.6rem;
+  padding: 0.5rem 1.1rem;
+  background: var(--marfim);
+  color: var(--tinta);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  box-shadow: 0 3px 10px rgba(139, 86, 77, 0.2);
+  transition: opacity 0.4s ease;
+}
+
+/* Abertura */
+.envelope.abrindo {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.envelope.abrindo .envelope-aba {
+  transform: rotateX(-118deg);
+  opacity: 0.2;
+}
+
+.envelope.abrindo .envelope-lacre {
+  transform: translateY(-26px) scale(1.35);
+  opacity: 0;
+}
+
+.envelope.abrindo .envelope-etiqueta {
+  opacity: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Acessibilidade e telas maiores
+   -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+
+@media (min-width: 900px) {
+  body {
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        var(--blush) 0%,
+        var(--porcelana) 60%
+      );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope,
+  .envelope-aba,
+  .envelope-lacre,
+  .envelope-etiqueta,
+  .botao,
+  .player-btn {
+    transition-duration: 0.01ms !important;
+  }
+  .envelope.abrindo .envelope-aba,
+  .envelope.abrindo .envelope-lacre {
+    transform: none;
+  }
+}
