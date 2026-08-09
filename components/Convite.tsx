@@ -71,6 +71,12 @@ export default function Convite({ audioRef }: Props) {
         </p>
       </section>
 
+<p className="aviso-pontualidade">
+  A noiva será pontual.
+  <br />
+  Favor não se atrasar!
+</p>
+
       <section className="secao">
         <Contagem />
       </section>
@@ -107,11 +113,6 @@ export default function Convite({ audioRef }: Props) {
 <p className="texto">
   Sua presença é muito importante para nós. Pedimos a gentileza de
   confirmar quantas pessoas virão com você.
-</p>
-<p className="observacao">
-  A noiva será pontual.
-  <br />
-  Favor não se atrasar!
 </p>
         <Botao href={links.rsvp}>Confirmar presença</Botao>
       </section>
