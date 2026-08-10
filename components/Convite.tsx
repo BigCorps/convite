@@ -146,9 +146,9 @@ export default function Convite({ audioRef }: Props) {
         <Broto className="broto-titulo" />
         <h2 className="titulo-script">Nosso Site</h2>
         <p className="texto">
-          Confira nosso site com mais informações:
+          Confira o site Completo com mais informações:
         </p>
-        <Botao href={links.site}>Casar.com</Botao>
+        <Botao href={links.siteCompleto}>Casar.com</Botao>
       </section>
 
       <Divisor />
