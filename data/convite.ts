@@ -25,7 +25,7 @@ export const convite = {
     iso: "2026-10-31T13:00:00-03:00",
     extenso: "31 de outubro de 2026",
     diaSemana: "Sábado",
-    horario: "das 13h às 18h",
+    horario: "das 12h às 17h",
     // Usado pelo calendário
     ano: 2026,
     mes: 10, // 1 = janeiro
