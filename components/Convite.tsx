@@ -140,6 +140,17 @@ export default function Convite({ audioRef }: Props) {
         <Botao href={links.recados}>Deixar um recado</Botao>
       </section>
 
+<Divisor />
+
+      <section className="secao">
+        <Broto className="broto-titulo" />
+        <h2 className="titulo-script">Nosso Site</h2>
+        <p className="texto">
+          Confira nosso site com mais informações:
+        </p>
+        <Botao href={links.site}>Casar.com</Botao>
+      </section>
+
       <Divisor />
 
       <section className="secao">
