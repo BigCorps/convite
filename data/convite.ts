@@ -46,8 +46,8 @@ export const convite = {
   avisoPontualidade: "A noiva será pontual. Favor não se atrasar!",
 
   trajes: {
-    texto: "Traje social.",
-    destaque: "Roupas e cores claras são reservadas à noiva.",
+    texto: "Traje Esporte Fino.",
+    destaque: "Favor não usar jeans. Branco e cores claras são reservadas à noiva.",
   },
 
   // Tudo que precisa de banco de dados mora no nosso site do Casar.com.
